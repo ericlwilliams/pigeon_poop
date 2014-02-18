@@ -17,7 +17,15 @@ pp.data[,`:=`(Created.Date=as.POSIXct(Created.Date),
 	Closed.Date=as.Date(Closed.Date),
  	id=as.character(id))]
 
+# chooo
+
+
+
+
+browser()
+
 # options(echo=TRUE)
+
 args <- commandArgs(trailingOnly = TRUE)
 
 if(length(args)!= 2)

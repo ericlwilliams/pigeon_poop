@@ -23,7 +23,10 @@ fix.date <- function(date.str){
 pp311.data <- pp311.data[,list(Zip=as.numeric(Incident.Zip),id=Unique.Key,
 	Created.Date=fix.date(Created.Date),Closed.Date=fix.date(Closed.Date),Resolution.Date=fix.date(Resolution.Action.Updated.Date),Borough=Borough)]
 pp311.data <- pp311.data[which(!is.na(Zip)),]
-browser()
+
+# target to predict
+pp311.data$Is.Closed <- as.factor(with(pp311.data,!is.na(Closed.Date)))
+
 # Days to resolution
 # 0 - same day
 pp311.data[,Resolution.Time:=difftime(Resolution.Date,Created.Date,units="days")]
